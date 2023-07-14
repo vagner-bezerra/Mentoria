@@ -1,0 +1,107 @@
+﻿@model Person
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card card-info">
+    <div class="card-body">
+        <h5><a asp-action="Index">Voltar a Lista</a> / Pessoas / Edição</h5>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Type" class="control-label"></label>
+                    <select asp-for="Type" class="form-control">
+                        <option>Selecione uma opção</option>
+                        <option value="0">Mentorado</option>
+                        <option value="1">Mentor</option>
+                    </select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="CircleId" class="control-label"></label>
+                    <select asp-for="CircleId" class="form-control" asp-items="ViewBag.CircleId">
+                        <option>Selecione uma opção</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="CPF" class="control-label"></label>
+                    <input asp-for="CPF" class="form-control" />
+                    <span asp-validation-for="CPF" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="BornDate" class="control-label"></label>
+                    <input asp-for="BornDate" class="form-control" type="date" value="@Model.BornDate.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="BornDate" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="NivelStudy" class="control-label"></label>
+                    <select asp-for="NivelStudy" class="form-control">
+                        <option>Selecione uma opção</option>
+                        <option value="0">Ensino Fundamental Incompleto</option>
+                        <option value="1">Ensino Fundamental Completo</option>
+                        <option value="2">Ensino Medio Incompleto</option>
+                        <option value="3">Ensino Medio Completo</option>
+                        <option value="4">Ensino Superior Incompleto</option>
+                        <option value="5">Ensino Superior Completo</option>
+                    </select>
+                    <span asp-validation-for="NivelStudy" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="University" class="control-label"></label>
+                    <input asp-for="University" class="form-control" />
+                    <span asp-validation-for="University" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="GraduateDate" class="control-label"></label>
+                    <input asp-for="GraduateDate" class="form-control" type="date" value="@Model.GraduateDate.ToString("yyyy-MM-dd")"/>
+                    <span asp-validation-for="GraduateDate" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Enterprise" class="control-label"></label>
+                    <input asp-for="Enterprise" class="form-control" />
+                    <span asp-validation-for="Enterprise" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <div style="padding-left: 1.25rem; padding-top: 1.25rem;">
+                        <input class="form-check-input" asp-for="Recommendation" />
+                        <label asp-for="Recommendation" class="control-label"></label>
+                        <br />
+                        <input class="form-check-input" asp-for="IsStudying" />
+                        <label asp-for="IsStudying" class="control-label"></label>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

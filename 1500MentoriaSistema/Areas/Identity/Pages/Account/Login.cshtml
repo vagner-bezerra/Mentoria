@@ -1,0 +1,59 @@
+﻿@page
+@model LoginModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutFull.cshtml";
+    ViewData["Title"] = "Login";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/home.css" />
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 black-background">
+            <img src="~/img/logo1500.png" alt="Image" class="img-fluid" style="max-width: 600px;">
+        </div>
+        <div class="col-6">
+            <div class="login-container">
+                <div class="w-50">
+                    <form id="account" method="post" class="row">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="col-12 mb-2 p-0">
+                            <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 mb-2 p-0">
+                            <input asp-for="Input.Password" class="form-control" placeholder="Senha" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <div class="checkbox">
+                                <label asp-for="Input.RememberMe">
+                                    <input asp-for="Input.RememberMe" />
+                                    Lembrar-me
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary col-12 ">Entrar</button>
+
+                        <div class="col-12 dropdown-divider"></div>
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Registrar</a>
+                            </div>
+                            <div class="col-6">
+                                <a id="forgot-password" asp-page="./ForgotPassword">Esqueceu a senha?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

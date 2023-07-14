@@ -1,0 +1,341 @@
+﻿@using System.Globalization
+@model IEnumerable<ActualState>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .floating-windown {
+        position: absolute;
+        width: 300px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .custom-card {
+        background: white;
+        border-radius: 16px;
+        padding: 16px;
+    }
+
+    tfoot tr th {
+        overflow: visible;
+    }
+
+        tfoot tr th .bootstrap-select {
+            max-width: 100%;
+        }
+
+            tfoot tr th .bootstrap-select * .filter-option-inner-inner {
+                text-overflow: ellipsis;
+            }
+</style>
+
+<div class="card">
+    <div class="card-header">
+        <h4 style="margin-bottom: 0">Estado Atual</h4>
+    </div>
+
+    <div class="card-body p-0">
+        <table id="table" class="table display compact" style="margin-top: 0px !important; width:100%">
+            <thead>
+                <tr>
+                    <th class="clamp-text" scope="col" style="width: 10px">
+                        <input id="chkAll" type="checkbox" class="form-check-input" style="position: initial !important; margin-left: 0px !important" />
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Circle)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Project)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%;">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Description)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().TypeObject)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Person)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().TimePlanned)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().HoursDay)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        Horas Restantes
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Productivity)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Value)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().FinalValue)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Sprint)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%; text-align: center">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Delivered)
+                    </th>
+                    <th class="clamp-text" scope="col" style="width: 10%"></th>
+                </tr>
+            </thead>
+            <tfoot style="display: table-header-group;">
+                <tr>
+                    <th class="clamp-text" style="width: 10px"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="clamp-text" style="width: 10px">
+                            <input name="chkSelected" type="checkbox" value="@item.Id" class="form-check-input" style="position: initial !important; margin-left: 0px !important" />
+                        </td>
+                        <td class="clamp-text" style="width: 10%">
+                            @Html.DisplayFor(modelItem => item.Circle.Name)
+                        </td>
+                        <td class="clamp-text" style="width: 10%">
+                            @Html.DisplayFor(modelItem => item.Project.Name)
+                        </td>
+                        <td class="clamp-text" style="width: 10%; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td class="clamp-text" style="width: 10%">
+                            @Html.DisplayFor(modelItem => item.TypeObject)
+                        </td>
+                        <td class="clamp-text" style="width: 10%">
+                            @Html.DisplayFor(modelItem => item.Person.Name)
+                        </td>
+                        <td class="clamp-text value" style="width: 10%; text-align: right; padding-right: 8px">
+                            @Html.DisplayFor(modelItem => item.TimePlanned)
+                        </td>
+                        <td class="clamp-text value" style="width: 10%; text-align: right; padding-right: 8px">
+                            @Html.DisplayFor(modelItem => item.RealTime)
+                        </td>
+                        <td class="clamp-text" style="width: 10%; text-align: right; padding-right: 8px">
+                            @{
+                                var value = item.TimePlanned - item.RealTime;
+                            }
+                            @value
+                        </td>
+                        <td class="clamp-text" style="width: 10%">
+                            @Html.DisplayFor(modelItem => item.Productivity)%
+                        </td>
+                        <td class="clamp-text value" style="width: 10%">
+                            @Html.DisplayFor(modelItem => item.Value)
+                        </td>
+                        <td class="clamp-text value" style="width: 10%">
+                            @Html.DisplayFor(modelItem => item.FinalValue)
+                        </td>
+                        <td class="clamp-text" style="width: 10%">
+                            @Html.DisplayFor(modelItem => item.Sprint)
+                        </td>
+                        <td class="clamp-text" style="width: 10%; text-align: center">
+                            @Html.DisplayFor(modelItem => item.Delivered)
+                        </td>
+                        <td class="clamp-text" style="width: 10%">
+                            <a class="iconsActions" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-pen"></i></a>
+                            <a class="iconsActions" href="#" onclick="openDetails('@item.Id')"><i class="fas fa-list"></i></a>
+                            <a class="iconsActions" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="details" class="floating-windown" style="display: none; width: 80% !important">
+</div>
+
+<div id="resume" class="floating-windown custom-card row shadow" style="display: none;">
+    <div class="col-12" style="display: flex;">
+        <h3>Resumo</h3>
+
+        <a id="closeBtn" href="#" style="margin-left: 130px; font-size: 1.5rem"><i class="fas fa-times"></i></a>
+    </div>
+
+    <div class="col-12">
+        <p id="valueSum">Valor Total: </p>
+        <p id="finalValueSum">Valor Real: </p>
+        <p id="timePlannedSum">Tempo Planejado: </p>
+        <p id="realTimeSum">Tempo Real: </p>
+    </div>
+</div>
+
+<div class="suspend bg-white shadow text-center px-2 py-2" style="right: 2rem; bottom: 2rem; border-radius: 5rem">
+    <div class="row px-2">
+        <a class="rounded-button" href="#" id="btnDelete" style="margin-right: 1rem !important; background-color: #ff0000; display: none; border-radius: 50%; align-items: center; justify-content: center;">
+            <i class="fas fa-trash" style="color: #ffffff; font-size: 1.5rem;"></i>
+        </a>
+    </div>
+    <div class="row px-2">
+        <a class="rounded-button" href="#" id="btnInfo" style="background-color: #6083a8; margin-right: 1rem !important; display: none; border-radius: 50%; align-items: center; justify-content: center;">
+            <i class="fas fa-info" style="color: #ffffff; font-size: 1.5rem;"></i>
+        </a>
+    </div>
+    <div class="row px-2">
+        <a asp-action="Create" class="rounded-button" style="border-radius: 50%; background-color: #007bff;">
+            <i class="fas fa-plus" style="color: #ffffff; font-size: 1.5rem;"></i>
+        </a>
+    </div>
+</div>
+
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/js/basicDatatable.js"></script>
+
+    <script>
+        $.fn.selectpicker.Constructor.BootstrapVersion = '4';
+        $(document).ready(function () {
+            $("#btnInfo").click(function () {
+                var selectedRows = $("input[name='chkSelected']:checked").closest("tr");
+                var valueSum = 0;
+                var finalValueSum = 0;
+                var timePlannedSum = 0;
+                var realTimeSum = 0;
+
+                selectedRows.each(function () {
+                    var row = $(this);
+
+                    var valueText = row.find(".value:eq(2)").text().replace(/[^0-9.]/g, '');
+                    var finalValueText = row.find(".value:eq(3)").text().replace(/[^0-9.]/g, '');
+                    var timePlannedText = row.find(".value:eq(0)").text().replace(/[^0-9.]/g, '');
+                    var realTimeText = row.find(".value:eq(1)").text().replace(/[^0-9.]/g, '');
+
+                    var value = parseFloat(valueText);
+                    var finalValue = parseFloat(finalValueText);
+                    var timePlanned = parseFloat(timePlannedText);
+                    var realTime = parseFloat(realTimeText);
+
+                    if (!isNaN(value))
+                        valueSum += value;
+
+                    if (!isNaN(finalValue))
+                        finalValueSum += finalValue;
+
+                    if (!isNaN(timePlanned))
+                        timePlannedSum += timePlanned;
+
+                    if (!isNaN(realTime))
+                        realTimeSum += realTime;
+                });
+
+                $("#valueSum").text("Valor Total: R$" + valueSum.toFixed(2));
+                $("#finalValueSum").text("Valor Real: R$" + finalValueSum.toFixed(2));
+                $("#timePlannedSum").text("Tempo Planejado: " + timePlannedSum.toFixed(2));
+                $("#realTimeSum").text("Tempo Real: " + realTimeSum.toFixed(2));
+
+                $('#resume').css('display', 'block');
+            });
+
+            $("#closeBtn").click(function () {
+                $('#resume').css('display', 'none');
+            });
+
+            $("#chkAll").click(function () {
+                $("input[name='chkSelected']").prop('checked', $(this).prop('checked'));
+
+                if ($(this).prop('checked')) {
+                    $('#btnDelete').show();
+                    $('#btnInfo').show();
+                }
+                else {
+                    $('#btnDelete').hide();
+                    $('#btnInfo').hide();
+                }
+            });
+
+            $("input[name='chkSelected']").click(function () {
+                var selectedIds = $("input[name='chkSelected']:checked").length;
+
+                if ($(this).is(':checked') || selectedIds > 0) {
+                    $('#btnDelete').show();
+                    $('#btnInfo').show();
+                }
+                else {
+                    $('#btnDelete').hide();
+                    $('#btnInfo').hide();
+                    $('#chkAll').prop('checked', false);
+                }
+
+            });
+
+            $("#btnDelete").click(function () {
+                var selectedIds = $("input[name='chkSelected']:checked").map(function () {
+                    return $(this).val();
+                }).get();
+
+                if (selectedIds.length > 0) {
+                    $('#btnDelete').show();
+                    $('#btnInfo').show();
+
+                    if (confirm("Você tem certeza que deseja deletar este(s) registros?")) {
+                        $.ajax({
+                            url: '@Url.Action("MultipleDelete", "ActualStates")',
+                            type: 'POST',
+                            data: { ids: selectedIds },
+                            success: function () {
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Um erro ocorreu ao tentar deletar este(s) resgistros.");
+                            }
+                        });
+                    }
+                } else {
+                    $('#btnDelete').hide();
+                    $('#btnInfo').hide();
+
+                    alert("Por favor selecione pelo menos um item a ser deletado.");
+                }
+            });
+
+            const dataTableHandler = new dataTableGenerate('#table');
+        });
+
+        function openDetails(id)
+        {
+            $('#details').css('display', 'block');
+
+            $.ajax({
+                url: `/HoursDays/HoursStates/${id}`,
+                method: 'POST',
+                dataType: 'html',
+                success: function (response) {
+                    $('#details').html(response);
+                    const dataTableHandler = new basicDataTableGenerate('#partialTable');
+                },
+                error: function (error) {
+                }
+            });
+        }
+        function closeDetails(){
+            $('#details').css('display', 'none');
+        }
+    </script>
+}

@@ -1,0 +1,271 @@
+﻿@using Microsoft.AspNetCore.Authorization
+
+@inject IAuthorizationService AuthorizationService
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - 1500fh Mentoria</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!--Data Tables-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4/r-2.4.1/datatables.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="~/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    @RenderSection("Styles", required: false)
+</head>
+
+<body class="sidebar-mini sidebar-collapse" style="height: auto;">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="@Html.Raw(User.Identity.IsAuthenticated ? "" : "margin-left: 0 !important")">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                    </li>
+                </ul>
+            }
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+                <partial name="_LoginPartial" />
+            </ul>
+        </nav>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-light-secondary elevation-4" style="background: #0075f0">
+                <!-- Logo -->
+                <a class="brand-link">
+                    <img src="~/img/logo1500.png" class="img-size-50 mr-3">
+                    <span class="brand-text font-weight-light" style="color: white">Sistema Mentoria</span>
+                </a>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            @if ((await AuthorizationService.AuthorizeAsync(User, "AdminAccess")).Succeeded)
+                            {
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link" style="color: white;">
+                                        <i class="fas fa-users" style="text-align: center; padding-right: 16px"></i>
+                                        <p>
+                                            Usuários
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="Circles" asp-action="Index">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Círculos</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-controller="People" asp-action="Index">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Pessoas</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-controller="Security" asp-action="Assign">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Permissões</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                            @if ((await AuthorizationService.AuthorizeAsync(User, "EmployeeAccess")).Succeeded)
+                            {
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link" style="color: white;">
+                                        <i class="fas fa-sitemap" style="text-align: center; padding-right: 16px"></i>
+                                        <p>
+                                            Projetos
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="Projects" asp-action="Index">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Projetos</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="Enterprises" asp-action="Index">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Empresas</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="TypeConsultors" asp-action="Index">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Tarifas</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" style="color: white;">
+                                    <i class="fas fa-chalkboard-teacher" style="text-align: center; padding-right: 16px"></i>
+                                    <p>
+                                        Cursos
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-area="" asp-controller="Themes" asp-action="Index">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Temas</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-area="" asp-controller="Learnings" asp-action="Index">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Aprendizados</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-area="" asp-controller="Feedbacks" asp-action="Index">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Feedbacks</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" style="color: white;">
+                                    <i class="fas fa-lock" style="text-align: center; padding-left: 4px; padding-right: 16px"></i>
+                                    <p>
+                                        Planejamento
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-area="" asp-controller="ActualStates" asp-action="Index">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Estado Atual</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-area="" asp-controller="HoursDays" asp-action="Index">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Horas Dias</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @if ((await AuthorizationService.AuthorizeAsync(User, "TellerAccess")).Succeeded)
+                            {
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link" style="color: white;">
+                                        <i class="fas fa-money-bill-wave" style="text-align: center; padding-left: 4px; padding-right: 8px"></i>
+                                        <p>
+                                            Financeiro
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="BankAccounts" asp-action="Index">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Contas Bancarias</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="Expenses" asp-action="Index">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Registros Bancarios</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="BusinessRegister">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Registros Gerais</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+        }
+        <!-- Main content -->
+        <div class="content-wrapper" style="height: 85vh; @Html.Raw(User.Identity.IsAuthenticated ? "" : "margin-left: 0 !important")">
+            <div class="content" style="overflow-x: auto !important; height: 100%">
+                <main role="main" class="pb-3" style="padding: 1.5rem">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+
+        <!-- Control sidebar -->
+        <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+            <div class="p-3">
+            </div>
+        </aside>
+
+        <!-- Footer -->
+        <footer class="main-footer" style="padding: 0.25rem !important; padding-left: 1.5rem; @Html.Raw(User.Identity.IsAuthenticated ? "" : "margin-left: 0 !important")">
+            <strong>Copyright © 2023 <a href="https://1500fh.com/produtos/wp-content/uploads/2021/12/1500fh_ImpLGPD_POL_Poli%CC%81tica-de-Privacidade-e-Protec%CC%A7a%CC%83o-de-Dados-Pessoais_211019_V-3.0.pdf">Privacidade</a>.</strong> Todos direitos reservados.
+        </footer>
+        <div id="sidebar-overlay"></div>
+    </div>
+
+    <!-- REQUIRED SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/plugins/moment/moment.min.js"></script>
+    <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/js/datatable.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Data Tables -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
+
+    <!-- SWEET ALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- AdminLTE App -->
+    <script src="~/js/adminlte.js"></script>
+    <!-- Google Chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- ORIGINAL SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

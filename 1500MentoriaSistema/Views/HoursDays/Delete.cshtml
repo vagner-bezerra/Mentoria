@@ -1,0 +1,70 @@
+﻿@model _1500MentoriaSistema.Models.HoursDay
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card card-info">
+    <div class="card-body">
+        <h5><a asp-action="Index">Voltar a Lista</a> / Horas Dias / Deletar</h5>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ActualState.Project)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ActualState.Project.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ActualState.TypeObject)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ActualState.TypeObject)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ActualState.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ActualState.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ActualState.Person.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ActualState.Person.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.InsertDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.InsertDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Hours)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Hours)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Delivered)
+            </dt>
+            <dd class="col-sm-10">
+                @{
+                    if (Model.Delivered)
+                    {
+                        <i class="fas fa-check" style="color: #0a9900;"></i>
+                    }
+                    else
+                    {
+                        <i class="fas fa-times" style="color: #ff0000;"></i>
+                    }
+                }
+            </dd>
+        </dl>
+        <hr />
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Deletar" class="btn btn-danger" />
+        </form>
+    </div>
+</div>

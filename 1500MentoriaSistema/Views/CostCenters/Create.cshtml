@@ -1,0 +1,28 @@
+﻿@model _1500MentoriaSistema.Models.CostCenter
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card card-info">
+    <div class="card-body">
+        <h5><a asp-action="Index">Voltar a Lista</a> / Centro de Custo / Novo</h5>
+        <hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <hr/>
+            <div class="row">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

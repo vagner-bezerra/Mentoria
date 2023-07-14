@@ -1,0 +1,116 @@
+﻿@model ActualState
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card card-info">
+    <div class="card-body">
+        <h5><a asp-action="Index">Voltar a Lista</a> / Estado Atual / Editar</h5>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="row">
+                <div class="autocomplete-container col-md-3">
+                    <label asp-for="CircleId" class="control-label"></label>
+                    <input type="text" id="CircleIdInput" class="form-control">
+                    <input type="hidden" id="CircleId" asp-for="CircleId">
+                    <ul id="CircleId-Suggestions" class="autocomplete-suggestions"></ul>
+                    <span asp-validation-for="CircleId" class="text-danger"></span>
+                </div>
+                <div class="autocomplete-container col-md-3">
+                    <label asp-for="ProjectId" class="control-label"></label>
+                    <input type="text" id="ProjectIdInput" class="form-control">
+                    <input type="hidden" id="ProjectId" asp-for="ProjectId">
+                    <ul id="ProjectId-Suggestions" class="autocomplete-suggestions"></ul>
+                    <span asp-validation-for="ProjectId" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="TypeObject" class="control-label"></label>
+                    <select asp-for="TypeObject" class="form-control">
+                        <option value="">Selecione uma opção</option>
+                        <option value="4">Aula</option>
+                        <option value="3">BBP</option>
+                        <option value="2">Dash</option>
+                        <option value="6">Desenvolvimento</option>
+                        <option value="1">ETL</option>
+                        <option value="0">Gestão</option>
+                        <option value="7">Manutenção</option>
+                        <option value="5">Preparação Aula</option>
+                        <option value="8">Suporte</option>
+                    </select>
+                    <span asp-validation-for="TypeObject" class="text-danger"></span>
+                </div>
+                <div class="autocomplete-container col-md-3">
+                    <label asp-for="TypeConsultorId" class="control-label"></label>
+                    <input type="text" id="TypeConsultorIdInput" class="form-control">
+                    <input type="hidden" id="TypeConsultorId" asp-for="TypeConsultorId">
+                    <ul id="TypeConsultorId-Suggestions" class="autocomplete-suggestions"></ul>
+                    <span asp-validation-for="TypeConsultorId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="autocomplete-container col-md-3">
+                    <label asp-for="PersonId" class="control-label"></label>
+                    <input type="text" id="PersonIdInput" class="form-control">
+                    <input type="hidden" id="PersonId" asp-for="PersonId">
+                    <ul id="PersonId-Suggestions" class="autocomplete-suggestions"></ul>
+                    <span asp-validation-for="PersonId" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="TimePlanned" class="control-label"></label>
+                    <input asp-for="TimePlanned" class="form-control" />
+                    <span asp-validation-for="TimePlanned" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Sprint" class="control-label"></label>
+                    <input asp-for="Sprint" class="form-control" type="date" value="@Model.Sprint.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="Sprint" class="text-danger"></span>
+                </div>
+                <div class="col-md-1">
+                    <label asp-for="Delivered" class="control-label"></label>
+                    <select asp-for="Delivered" class="form-control">
+                        <option value="" disabled>Selecione uma opção</option>
+                        <option value="1">Não</option>
+                        <option value="3">Esperando Aprovação</option>
+                        <option value="2">Sim</option>
+                    </select>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="~/js/autocomplete.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const typeConsultorData = @Html.Raw(Json.Serialize(ViewBag.TypeConsultorId));
+            const typeAutoComplete = new Autocomplete("#TypeConsultorIdInput", "#TypeConsultorId-Suggestions", "#TypeConsultorId", typeConsultorData);
+
+            const personData = @Html.Raw(Json.Serialize(ViewBag.PersonId));
+            const userAutoComplete = new Autocomplete("#PersonIdInput", "#PersonId-Suggestions", "#PersonId", personData);
+
+            const projectData = @Html.Raw(Json.Serialize(ViewBag.ProjectId));
+            const projectAutoComplete = new Autocomplete("#ProjectIdInput", "#ProjectId-Suggestions", "#ProjectId", projectData);
+
+            const circleData = @Html.Raw(Json.Serialize(ViewBag.CircleId));
+            const circleAutoComplete = new Autocomplete("#CircleIdInput", "#CircleId-Suggestions", "#CircleId", circleData);
+        });
+    </script>
+}

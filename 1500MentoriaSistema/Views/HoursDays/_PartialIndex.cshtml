@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HoursDay>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 style="margin-bottom: 0">Detalhes Estado</h4>
+            </div>
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-1">
+                <i class="far fa-times-circle" onclick="closeDetails()" style="display: grid; align-content: center; justify-content: center; font-size: 2rem"></i>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-2">
+        <table id="partialTable" class="table display compact" style="margin-top: 0px !important; width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Person.Name)
+                    </th>
+                    <td>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().InsertDate)
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Hours)
+                    </th>
+                    <th style="text-align: center">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Delivered)
+                    </th>
+                </tr>
+            </thead>
+            <tfoot style="display: table-header-group;">
+                <tr>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                    <th class="clamp-text" style="width: 10%"></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Person.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InsertDate)
+                        </td>
+                        <td class="hours">
+                            @Html.DisplayFor(modelItem => item.Hours)
+                        </td>
+                        <td style="text-align: center">
+                            @{
+                                var value = item.Delivered ? "Entregue" : "Não";
+                            }
+                            @value
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

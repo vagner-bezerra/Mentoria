@@ -1,0 +1,60 @@
+﻿@model _1500MentoriaSistema.Models.HoursDay
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card card-info">
+    <div class="card-body">
+        <h5><a asp-action="Index">Voltar a Lista</a> / Horas Dias / Edição</h5>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="row">
+                <div class="autocomplete-container col-md-3">
+                    <label asp-for="ActualstateId" class="control-label"></label>
+                    <input type="text" id="ActualstateIdInput" class="form-control">
+                    <input type="hidden" id="ActualstateId" asp-for="ActualstateId">
+                    <ul id="ActualstateId-Suggestions" class="autocomplete-suggestions"></ul>
+                    <span asp-validation-for="ActualstateId" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="InsertDate" class="control-label"></label>
+                    <input asp-for="InsertDate" class="form-control" type="date" value="@Model.InsertDate.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="InsertDate" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Hours" class="control-label"></label>
+                    <input asp-for="Hours" class="form-control" />
+                    <span asp-validation-for="Hours" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <div style="padding-left: 1.5rem; padding-top: 2.3rem;">
+                        <input class="form-check-input" asp-for="Delivered" />
+                        <label asp-for="Delivered" class="control-label"></label>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+        <script src="~/js/autocomplete.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                const activityId = @Html.Raw(Json.Serialize(ViewBag.ActualstateId));
+                const activityAutocomplete = new Autocomplete("#ActualstateIdInput", "#ActualstateId-Suggestions", "#ActualstateId", activityId);
+            });
+        </script>
+}

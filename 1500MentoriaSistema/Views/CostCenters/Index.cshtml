@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CostCenter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h4 style="margin-bottom: 0">Centro de Custo</h4>
+    </div>
+    <div class="card-body p-0">
+        <table id="table" class="table display compact" style="margin-top: 0px !important; width:100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            <a class="iconsActions" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-pen"></i></a> |
+                            <a class="iconsActions" asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-list"></i></a> |
+                            <a class="iconsActions" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            const dataTableHandler = new dataTableGenerate('#table');
+        });
+    </script>
+}

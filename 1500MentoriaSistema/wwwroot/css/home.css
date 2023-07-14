@@ -1,0 +1,1722 @@
+﻿.black-background {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+@charset "UTF-8";
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+.containerShape {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    overflow: hidden;
+    background-color: #000;
+}
+
+    .containerShape .inner-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+.shape {
+    margin: 0 auto;
+    position: relative;
+    opacity: 1;
+}
+
+.random-shape:after {
+    font-family: FontAwesome;
+    content: "";
+}
+
+@keyframes shape-1 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(348deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(708deg);
+    }
+}
+
+.shape-container--1 {
+    animation: shape-1 87s linear infinite;
+}
+
+    .shape-container--1 .random-shape:after {
+        margin: 1.7rem;
+        color: #FFFF;
+        font-size: 0.34rem;
+        content: "";
+    }
+
+@keyframes shape-2 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(153deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(513deg);
+    }
+}
+
+.shape-container--2 {
+    animation: shape-2 87s linear infinite;
+}
+
+    .shape-container--2 .random-shape:after {
+        margin: 6.7rem;
+        color: #FFF;
+        font-size: 1.34rem;
+        content: "";
+    }
+
+@keyframes shape-3 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(103deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(463deg);
+    }
+}
+
+.shape-container--3 {
+    animation: shape-3 90s linear infinite;
+}
+
+    .shape-container--3 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-4 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(18deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(378deg);
+    }
+}
+
+.shape-container--4 {
+    animation: shape-4 89s linear infinite;
+}
+
+    .shape-container--4 .random-shape:after {
+        margin: 10.7rem;
+        color: #FFF;
+        font-size: 2.14rem;
+        content: "";
+    }
+
+@keyframes shape-5 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(105deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(465deg);
+    }
+}
+
+.shape-container--5 {
+    animation: shape-5 102s linear infinite;
+}
+
+    .shape-container--5 .random-shape:after {
+        margin: 10.7rem;
+        color: #FFF;
+        font-size: 2.14rem;
+        content: "";
+    }
+
+@keyframes shape-6 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(204deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(564deg);
+    }
+}
+
+.shape-container--6 {
+    animation: shape-6 87s linear infinite;
+}
+
+    .shape-container--6 .random-shape:after {
+        margin: 9.7rem;
+        color: #FFF;
+        font-size: 1.94rem;
+        content: "";
+    }
+
+@keyframes shape-7 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(162deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(522deg);
+    }
+}
+
+.shape-container--7 {
+    animation: shape-7 90s linear infinite;
+}
+
+    .shape-container--7 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-8 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(249deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(609deg);
+    }
+}
+
+.shape-container--8 {
+    animation: shape-8 107s linear infinite;
+}
+
+    .shape-container--8 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-9 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(95deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(455deg);
+    }
+}
+
+.shape-container--9 {
+    animation: shape-9 101s linear infinite;
+}
+
+    .shape-container--9 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-10 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(171deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(531deg);
+    }
+}
+
+.shape-container--10 {
+    animation: shape-10 81s linear infinite;
+}
+
+    .shape-container--10 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-11 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(103deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(463deg);
+    }
+}
+
+.shape-container--11 {
+    animation: shape-11 83s linear infinite;
+}
+
+    .shape-container--11 .random-shape:after {
+        margin: 9.7rem;
+        color: #FFFF;
+        font-size: 1.94rem;
+        content: "";
+    }
+
+@keyframes shape-12 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(35deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(395deg);
+    }
+}
+
+.shape-container--12 {
+    animation: shape-12 83s linear infinite;
+}
+
+    .shape-container--12 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-13 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(307deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(667deg);
+    }
+}
+
+.shape-container--13 {
+    animation: shape-13 89s linear infinite;
+}
+
+    .shape-container--13 .random-shape:after {
+        margin: 8.7rem;
+        color: #FFF;
+        font-size: 1.74rem;
+        content: "";
+    }
+
+@keyframes shape-14 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(63deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(423deg);
+    }
+}
+
+.shape-container--14 {
+    animation: shape-14 94s linear infinite;
+}
+
+    .shape-container--14 .random-shape:after {
+        margin: 6.7rem;
+        color: #FFF;
+        font-size: 1.34rem;
+        content: "";
+    }
+
+@keyframes shape-15 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(303deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(663deg);
+    }
+}
+
+.shape-container--15 {
+    animation: shape-15 87s linear infinite;
+}
+
+    .shape-container--15 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-16 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(102deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(462deg);
+    }
+}
+
+.shape-container--16 {
+    animation: shape-16 108s linear infinite;
+}
+
+    .shape-container--16 .random-shape:after {
+        margin: 6.7rem;
+        color: #FFF;
+        font-size: 1.34rem;
+        content: "";
+    }
+
+@keyframes shape-17 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(203deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(563deg);
+    }
+}
+
+.shape-container--17 {
+    animation: shape-17 101s linear infinite;
+}
+
+    .shape-container--17 .random-shape:after {
+        margin: 9.7rem;
+        color: #FFF;
+        font-size: 1.94rem;
+        content: "";
+    }
+
+@keyframes shape-18 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(115deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(475deg);
+    }
+}
+
+.shape-container--18 {
+    animation: shape-18 86s linear infinite;
+}
+
+    .shape-container--18 .random-shape:after {
+        margin: 10.7rem;
+        color: #FFF;
+        font-size: 2.14rem;
+        content: "";
+    }
+
+@keyframes shape-19 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(208deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(568deg);
+    }
+}
+
+.shape-container--19 {
+    animation: shape-19 91s linear infinite;
+}
+
+    .shape-container--19 .random-shape:after {
+        margin: 2.7rem;
+        color: #FFFF;
+        font-size: 0.54rem;
+        content: "";
+    }
+
+@keyframes shape-20 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(337deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(697deg);
+    }
+}
+
+.shape-container--20 {
+    animation: shape-20 84s linear infinite;
+}
+
+    .shape-container--20 .random-shape:after {
+        margin: 3.7rem;
+        color: #FFF;
+        font-size: 0.74rem;
+        content: "";
+    }
+
+@keyframes shape-21 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(131deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(491deg);
+    }
+}
+
+.shape-container--21 {
+    animation: shape-21 87s linear infinite;
+}
+
+    .shape-container--21 .random-shape:after {
+        margin: 10.7rem;
+        color: #FFFF;
+        font-size: 2.14rem;
+        content: "";
+    }
+
+@keyframes shape-22 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(179deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(539deg);
+    }
+}
+
+.shape-container--22 {
+    animation: shape-22 106s linear infinite;
+}
+
+    .shape-container--22 .random-shape:after {
+        margin: 10.7rem;
+        color: #FFF;
+        font-size: 2.14rem;
+        content: "";
+    }
+
+@keyframes shape-23 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(208deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(568deg);
+    }
+}
+
+.shape-container--23 {
+    animation: shape-23 86s linear infinite;
+}
+
+    .shape-container--23 .random-shape:after {
+        margin: 5.7rem;
+        color: #FFF;
+        font-size: 1.14rem;
+        content: "";
+    }
+
+@keyframes shape-24 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(178deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(538deg);
+    }
+}
+
+.shape-container--24 {
+    animation: shape-24 102s linear infinite;
+}
+
+    .shape-container--24 .random-shape:after {
+        margin: 6.7rem;
+        color: #FFF;
+        font-size: 1.34rem;
+        content: "";
+    }
+
+@keyframes shape-25 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(57deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(417deg);
+    }
+}
+
+.shape-container--25 {
+    animation: shape-25 92s linear infinite;
+}
+
+    .shape-container--25 .random-shape:after {
+        margin: 1.7rem;
+        color: #FFF;
+        font-size: 0.34rem;
+        content: "";
+    }
+
+@keyframes shape-26 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(275deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(635deg);
+    }
+}
+
+.shape-container--26 {
+    animation: shape-26 108s linear infinite;
+}
+
+    .shape-container--26 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-27 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(201deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(561deg);
+    }
+}
+
+.shape-container--27 {
+    animation: shape-27 81s linear infinite;
+}
+
+    .shape-container--27 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-28 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(47deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(407deg);
+    }
+}
+
+.shape-container--28 {
+    animation: shape-28 99s linear infinite;
+}
+
+    .shape-container--28 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-29 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(269deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(629deg);
+    }
+}
+
+.shape-container--29 {
+    animation: shape-29 98s linear infinite;
+}
+
+    .shape-container--29 .random-shape:after {
+        margin: 9.7rem;
+        color: #FFF;
+        font-size: 1.94rem;
+        content: "";
+    }
+
+@keyframes shape-30 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(74deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(434deg);
+    }
+}
+
+.shape-container--30 {
+    animation: shape-30 86s linear infinite;
+}
+
+    .shape-container--30 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-31 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(284deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(644deg);
+    }
+}
+
+.shape-container--31 {
+    animation: shape-31 90s linear infinite;
+}
+
+    .shape-container--31 .random-shape:after {
+        margin: 6.7rem;
+        color: #FFFF;
+        font-size: 1.34rem;
+        content: "";
+    }
+
+@keyframes shape-32 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(277deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(637deg);
+    }
+}
+
+.shape-container--32 {
+    animation: shape-32 90s linear infinite;
+}
+
+    .shape-container--32 .random-shape:after {
+        margin: 5.7rem;
+        color: #FFF;
+        font-size: 1.14rem;
+        content: "";
+    }
+
+@keyframes shape-33 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(4deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(364deg);
+    }
+}
+
+.shape-container--33 {
+    animation: shape-33 102s linear infinite;
+}
+
+    .shape-container--33 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-34 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(46deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(406deg);
+    }
+}
+
+.shape-container--34 {
+    animation: shape-34 94s linear infinite;
+}
+
+    .shape-container--34 .random-shape:after {
+        margin: 8.7rem;
+        color: #FFF;
+        font-size: 1.74rem;
+        content: "";
+    }
+
+@keyframes shape-35 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(216deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(576deg);
+    }
+}
+
+.shape-container--35 {
+    animation: shape-35 102s linear infinite;
+}
+
+    .shape-container--35 .random-shape:after {
+        margin: 9.7rem;
+        color: #FFFF;
+        font-size: 1.94rem;
+        content: "";
+    }
+
+@keyframes shape-36 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(45deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(405deg);
+    }
+}
+
+.shape-container--36 {
+    animation: shape-36 99s linear infinite;
+}
+
+    .shape-container--36 .random-shape:after {
+        margin: 1.7rem;
+        color: #FFF;
+        font-size: 0.34rem;
+        content: "";
+    }
+
+@keyframes shape-37 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(152deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(512deg);
+    }
+}
+
+.shape-container--37 {
+    animation: shape-37 94s linear infinite;
+}
+
+    .shape-container--37 .random-shape:after {
+        margin: 3.7rem;
+        color: #FFF;
+        font-size: 0.74rem;
+        content: "";
+    }
+
+@keyframes shape-38 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(23deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(383deg);
+    }
+}
+
+.shape-container--38 {
+    animation: shape-38 81s linear infinite;
+}
+
+    .shape-container--38 .random-shape:after {
+        margin: 8.7rem;
+        color: #FFF;
+        font-size: 1.74rem;
+        content: "";
+    }
+
+@keyframes shape-39 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(221deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(581deg);
+    }
+}
+
+.shape-container--39 {
+    animation: shape-39 106s linear infinite;
+}
+
+    .shape-container--39 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-40 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(54deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(414deg);
+    }
+}
+
+.shape-container--40 {
+    animation: shape-40 84s linear infinite;
+}
+
+    .shape-container--40 .random-shape:after {
+        margin: 8.7rem;
+        color: #FFF;
+        font-size: 1.74rem;
+        content: "";
+    }
+
+@keyframes shape-41 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(76deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(436deg);
+    }
+}
+
+.shape-container--41 {
+    animation: shape-41 81s linear infinite;
+}
+
+    .shape-container--41 .random-shape:after {
+        margin: 6.7rem;
+        color: #FFF;
+        font-size: 1.34rem;
+        content: "";
+    }
+
+@keyframes shape-42 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(287deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(647deg);
+    }
+}
+
+.shape-container--42 {
+    animation: shape-42 92s linear infinite;
+}
+
+    .shape-container--42 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-43 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(83deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(443deg);
+    }
+}
+
+.shape-container--43 {
+    animation: shape-43 89s linear infinite;
+}
+
+    .shape-container--43 .random-shape:after {
+        margin: 10.7rem;
+        color: #FFF;
+        font-size: 2.14rem;
+        content: "";
+    }
+
+@keyframes shape-44 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(119deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(479deg);
+    }
+}
+
+.shape-container--44 {
+    animation: shape-44 98s linear infinite;
+}
+
+    .shape-container--44 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-45 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(68deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(428deg);
+    }
+}
+
+.shape-container--45 {
+    animation: shape-45 108s linear infinite;
+}
+
+    .shape-container--45 .random-shape:after {
+        margin: 9.7rem;
+        color: #FFFF;
+        font-size: 1.94rem;
+        content: "";
+    }
+
+@keyframes shape-46 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(182deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(542deg);
+    }
+}
+
+.shape-container--46 {
+    animation: shape-46 95s linear infinite;
+}
+
+    .shape-container--46 .random-shape:after {
+        margin: 8.7rem;
+        color: #FFF;
+        font-size: 1.74rem;
+        content: "";
+    }
+
+@keyframes shape-47 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(34deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(394deg);
+    }
+}
+
+.shape-container--47 {
+    animation: shape-47 108s linear infinite;
+}
+
+    .shape-container--47 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-48 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(345deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(705deg);
+    }
+}
+
+.shape-container--48 {
+    animation: shape-48 104s linear infinite;
+}
+
+    .shape-container--48 .random-shape:after {
+        margin: 5.7rem;
+        color: #FFF;
+        font-size: 1.14rem;
+        content: "";
+    }
+
+@keyframes shape-49 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(146deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(506deg);
+    }
+}
+
+.shape-container--49 {
+    animation: shape-49 99s linear infinite;
+}
+
+    .shape-container--49 .random-shape:after {
+        margin: 8.7rem;
+        color: #FFF;
+        font-size: 1.74rem;
+        content: "";
+    }
+
+@keyframes shape-50 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(310deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(670deg);
+    }
+}
+
+.shape-container--50 {
+    animation: shape-50 82s linear infinite;
+}
+
+    .shape-container--50 .random-shape:after {
+        margin: 5.7rem;
+        color: #FFF;
+        font-size: 1.14rem;
+        content: "";
+    }
+
+@keyframes shape-51 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(90deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(450deg);
+    }
+}
+
+.shape-container--51 {
+    animation: shape-51 106s linear infinite;
+}
+
+    .shape-container--51 .random-shape:after {
+        margin: 3.7rem;
+        color: #FFF;
+        font-size: 0.74rem;
+        content: "";
+    }
+
+@keyframes shape-52 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(343deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(703deg);
+    }
+}
+
+.shape-container--52 {
+    animation: shape-52 101s linear infinite;
+}
+
+    .shape-container--52 .random-shape:after {
+        margin: 9.7rem;
+        color: #FFF;
+        font-size: 1.94rem;
+        content: "";
+    }
+
+@keyframes shape-53 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(28deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(388deg);
+    }
+}
+
+.shape-container--53 {
+    animation: shape-53 105s linear infinite;
+}
+
+    .shape-container--53 .random-shape:after {
+        margin: 3.7rem;
+        color: #FFF;
+        font-size: 0.74rem;
+        content: "";
+    }
+
+@keyframes shape-54 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(117deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(477deg);
+    }
+}
+
+.shape-container--54 {
+    animation: shape-54 110s linear infinite;
+}
+
+    .shape-container--54 .random-shape:after {
+        margin: 10.7rem;
+        color: #FFF;
+        font-size: 2.14rem;
+        content: "";
+    }
+
+@keyframes shape-55 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(126deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(486deg);
+    }
+}
+
+.shape-container--55 {
+    animation: shape-55 83s linear infinite;
+}
+
+    .shape-container--55 .random-shape:after {
+        margin: 1.7rem;
+        color: #FFF;
+        font-size: 0.34rem;
+        content: "";
+    }
+
+@keyframes shape-56 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(220deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(580deg);
+    }
+}
+
+.shape-container--56 {
+    animation: shape-56 90s linear infinite;
+}
+
+    .shape-container--56 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-57 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(308deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(668deg);
+    }
+}
+
+.shape-container--57 {
+    animation: shape-57 90s linear infinite;
+}
+
+    .shape-container--57 .random-shape:after {
+        margin: 1.7rem;
+        color: #FFFF;
+        font-size: 0.34rem;
+        content: "";
+    }
+
+@keyframes shape-58 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(148deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(508deg);
+    }
+}
+
+.shape-container--58 {
+    animation: shape-58 102s linear infinite;
+}
+
+    .shape-container--58 .random-shape:after {
+        margin: 2.7rem;
+        color: #FFF;
+        font-size: 0.54rem;
+        content: "";
+    }
+
+@keyframes shape-59 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(82deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(442deg);
+    }
+}
+
+.shape-container--59 {
+    animation: shape-59 103s linear infinite;
+}
+
+    .shape-container--59 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-60 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(171deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(531deg);
+    }
+}
+
+.shape-container--60 {
+    animation: shape-60 90s linear infinite;
+}
+
+    .shape-container--60 .random-shape:after {
+        margin: 6.7rem;
+        color: #FFFF;
+        font-size: 1.34rem;
+        content: "";
+    }
+
+@keyframes shape-61 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(344deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(704deg);
+    }
+}
+
+.shape-container--61 {
+    animation: shape-61 99s linear infinite;
+}
+
+    .shape-container--61 .random-shape:after {
+        margin: 5.7rem;
+        color: #FFF;
+        font-size: 1.14rem;
+        content: "";
+    }
+
+@keyframes shape-62 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(291deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(651deg);
+    }
+}
+
+.shape-container--62 {
+    animation: shape-62 91s linear infinite;
+}
+
+    .shape-container--62 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-63 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(59deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(419deg);
+    }
+}
+
+.shape-container--63 {
+    animation: shape-63 86s linear infinite;
+}
+
+    .shape-container--63 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-64 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(106deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(466deg);
+    }
+}
+
+.shape-container--64 {
+    animation: shape-64 106s linear infinite;
+}
+
+    .shape-container--64 .random-shape:after {
+        margin: 3.7rem;
+        color: #FFF;
+        font-size: 0.74rem;
+        content: "";
+    }
+
+@keyframes shape-65 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(126deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(486deg);
+    }
+}
+
+.shape-container--65 {
+    animation: shape-65 87s linear infinite;
+}
+
+    .shape-container--65 .random-shape:after {
+        margin: 9.7rem;
+        color: #FFF;
+        font-size: 1.94rem;
+        content: "";
+    }
+
+@keyframes shape-66 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(68deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(428deg);
+    }
+}
+
+.shape-container--66 {
+    animation: shape-66 81s linear infinite;
+}
+
+    .shape-container--66 .random-shape:after {
+        margin: 10.7rem;
+        color: #FFF;
+        font-size: 2.14rem;
+        content: "";
+    }
+
+@keyframes shape-67 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(288deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(648deg);
+    }
+}
+
+.shape-container--67 {
+    animation: shape-67 91s linear infinite;
+}
+
+    .shape-container--67 .random-shape:after {
+        margin: 3.7rem;
+        color: #FFF;
+        font-size: 0.74rem;
+        content: "";
+    }
+
+@keyframes shape-68 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(148deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(508deg);
+    }
+}
+
+.shape-container--68 {
+    animation: shape-68 93s linear infinite;
+}
+
+    .shape-container--68 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-69 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(147deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(507deg);
+    }
+}
+
+.shape-container--69 {
+    animation: shape-69 97s linear infinite;
+}
+
+    .shape-container--69 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-70 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(2deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(362deg);
+    }
+}
+
+.shape-container--70 {
+    animation: shape-70 91s linear infinite;
+}
+
+    .shape-container--70 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-71 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(138deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(498deg);
+    }
+}
+
+.shape-container--71 {
+    animation: shape-71 89s linear infinite;
+}
+
+    .shape-container--71 .random-shape:after {
+        margin: 5.7rem;
+        color: #FFFF;
+        font-size: 1.14rem;
+        content: "";
+    }
+
+@keyframes shape-72 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(329deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(689deg);
+    }
+}
+
+.shape-container--72 {
+    animation: shape-72 82s linear infinite;
+}
+
+    .shape-container--72 .random-shape:after {
+        margin: 3.7rem;
+        color: #FFF;
+        font-size: 0.74rem;
+        content: "";
+    }
+
+@keyframes shape-73 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(301deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(661deg);
+    }
+}
+
+.shape-container--73 {
+    animation: shape-73 81s linear infinite;
+}
+
+    .shape-container--73 .random-shape:after {
+        margin: 7.7rem;
+        color: #FFF;
+        font-size: 1.54rem;
+        content: "";
+    }
+
+@keyframes shape-74 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(150deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(510deg);
+    }
+}
+
+.shape-container--74 {
+    animation: shape-74 104s linear infinite;
+}
+
+    .shape-container--74 .random-shape:after {
+        margin: 3.7rem;
+        color: #FFF;
+        font-size: 0.74rem;
+        content: "";
+    }
+
+@keyframes shape-75 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(269deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(629deg);
+    }
+}
+
+.shape-container--75 {
+    animation: shape-75 110s linear infinite;
+}
+
+    .shape-container--75 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-76 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(154deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(514deg);
+    }
+}
+
+.shape-container--76 {
+    animation: shape-76 82s linear infinite;
+}
+
+    .shape-container--76 .random-shape:after {
+        margin: 6.7rem;
+        color: #FFFF;
+        font-size: 1.34rem;
+        content: "";
+    }
+
+@keyframes shape-77 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(293deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(653deg);
+    }
+}
+
+.shape-container--77 {
+    animation: shape-77 89s linear infinite;
+}
+
+    .shape-container--77 .random-shape:after {
+        margin: 4.7rem;
+        color: #FFF;
+        font-size: 0.94rem;
+        content: "";
+    }
+
+@keyframes shape-78 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(250deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(610deg);
+    }
+}
+
+.shape-container--78 {
+    animation: shape-78 82s linear infinite;
+}
+
+    .shape-container--78 .random-shape:after {
+        margin: 1.7rem;
+        color: #FFF;
+        font-size: 0.34rem;
+        content: "";
+    }
+
+@keyframes shape-79 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(182deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(542deg);
+    }
+}
+
+.shape-container--79 {
+    animation: shape-79 96s linear infinite;
+}
+
+    .shape-container--79 .random-shape:after {
+        margin: 1.7rem;
+        color: #FFF;
+        font-size: 0.34rem;
+        content: "";
+    }
+
+@keyframes shape-80 {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(81deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(441deg);
+    }
+}
+
+.shape-container--80 {
+    animation: shape-80 95s linear infinite;
+}
+
+    .shape-container--80 .random-shape:after {
+        margin: 10.7rem;
+        color: #FFF;
+        font-size: 2.14rem;
+        content: "";
+    }

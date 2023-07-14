@@ -1,0 +1,40 @@
+﻿@model _1500MentoriaSistema.Models.BankAccount
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card card-info">
+    <div class="card-body">
+        <h5><a asp-action="Index">Voltar a Lista</a> / Bancos / Editar</h5>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-4">
+                    <label asp-for="EnterpriseId" class="control-label"></label>
+                    <select asp-for="EnterpriseId" class="form-control" asp-items="ViewBag.EnterpriseId"></select>
+                </div>
+                <div class="col-4">
+                    <label class="control-label">Saldo</label>
+                    <input asp-for="InitialBalance" class="form-control" />
+                    <span asp-validation-for="InitialBalance" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

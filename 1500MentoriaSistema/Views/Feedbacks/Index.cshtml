@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Feedback>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h4 style="margin-bottom: 0">Feedbacks</h4>
+    </div>
+    <div class="card-body p-0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <input id="chkAll" type="checkbox" class="form-check-input" style="position: initial !important; margin-left: 0px !important" />
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Circle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Theme)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StudentPersonId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TeacherPersonId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OportunityLearning)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Note)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Comment)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input name="chkSelected" type="checkbox" value="@item.Id" class="form-check-input" style="position: initial !important; margin-left: 0px !important" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Circle.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Theme.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PersonFeedback
+                        .Where(x => x.TypePerson == TypePerson.Mentorado && x.FeedbackId == item.Id)
+                        .Select(x => string.IsNullOrEmpty(x.Person.Name) ? x.Person.UserName : x.Person.Name).FirstOrDefault())
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PersonFeedback
+                        .Where(x => x.TypePerson == TypePerson.Mentor && x.FeedbackId == item.Id)
+                        .Select(x => string.IsNullOrEmpty(x.Person.Name) ? x.Person.UserName : x.Person.Name).FirstOrDefault())
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OportunityLearning)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Note)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </td>
+                        <td>
+                            <a class="iconsActions" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-pen"></i></a> |
+                            <a class="iconsActions" asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-list"></i></a> |
+                            <a class="iconsActions" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $("#chkAll").click(function () {
+                $("input[name='chkSelected']").prop('checked', $(this).prop('checked'));
+
+                if ($(this).prop('checked'))
+                    $('#btnDelete').show();
+                else
+                    $('#btnDelete').hide();
+            });
+
+            $("input[name='chkSelected']").click(function () {
+                var selectedIds = $("input[name='chkSelected']:checked").length;
+
+                if ($(this).is(':checked') || selectedIds > 0) {
+                    $('#btnDelete').show();
+                }
+                else {
+                    $('#btnDelete').hide();
+                    $('#chkAll').prop('checked', false);
+                }
+
+            });
+
+            $("#btnDelete").click(function () {
+                var selectedIds = $("input[name='chkSelected']:checked").map(function () {
+                    return $(this).val();
+                }).get();
+
+                if (selectedIds.length > 0) {
+                    $('#btnDelete').show();
+
+                    if (confirm("Você tem certeza que deseja deletar este(s) registros?")) {
+                        $.ajax({
+                            url: '@Url.Action("MultipleDelete", "Feedbacks")',
+                            type: 'POST',
+                            data: { ids: selectedIds },
+                            success: function () {
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Um erro ocorreu ao tentar deletar este(s) resgistros.");
+                            }
+                        });
+                    }
+                } else {
+                    $('#btnDelete').hide();
+
+                    alert("Por favor selecione pelo menos um item a ser deletado.");
+                }
+            });
+
+            const dataTableHandler = new dataTableGenerate('#table');
+        });
+    </script>
+}
